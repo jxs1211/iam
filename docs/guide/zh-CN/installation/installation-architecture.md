@@ -27,8 +27,7 @@ IAM 采用前后端分离的软件架构，基于Go语言开发，包含多个�
   29:func (u *users) Create(ctx context.Context, user *v1.User, opts metav1.CreateOptions)
   ```
 - **iam-authz-server**：
-  - 授权服务，从 iam-apiserver 拉取密钥和授权策略，并缓存在内存中，用户通过请求[`) Reload`]
-  - iam-authz-server 提供的 /v1/authz 接口来完成资源的授权。/v1/authz 接口会查询缓存的授权策略，根据这些策略决定授权是否通过。
+  - 授权服务，从 iam-apiserver 拉取密钥和授权策略，并缓存在内存中，用户通过请求/v1/authz 接口来完成资源的授权。/v1/authz 接口会查询缓存的授权策略，根据这些策略决定授权是否通过。
     ```sh
     ➜  internal git:(master) ✗ ag --go --ignore "*_test.go" "\) Authorize"
       authzserver/controller/v1/authorize/authorize.go
